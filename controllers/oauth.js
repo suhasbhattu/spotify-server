@@ -53,7 +53,7 @@ const authenticate = async (req, res) => {
     });
     const data = await response.json();
     process.env["access_token"] = data.access_token;
-    res.redirect("http://localhost:3000/home");
+    res.redirect("https://spotify-client-chi.vercel.app/home");
   } catch (error) {
     console.log(error);
   }
@@ -67,7 +67,7 @@ const getAccessToken = (req, res) => {
 
 const logout = (req, res) => {
   process.env["access_token"] = "";
-  res.redirect("http://localhost:3000");
+  res.redirect("https://spotify-client-chi.vercel.app/");
 };
 
 module.exports = { login, authenticate, getAccessToken, logout };
