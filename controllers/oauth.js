@@ -23,7 +23,7 @@ const login = (req, res) => {
     response_type: "code",
     client_id: spotify_client_id,
     scope: scope,
-    redirect_uri: "http://localhost:5000/auth/callback",
+    redirect_uri: "https://spotify-server-nine.vercel.app/auth/callback",
     state: state,
   });
   res.redirect(
@@ -35,7 +35,7 @@ const authenticate = async (req, res) => {
   const code = req.query.code;
   const body = new URLSearchParams({
     code: code,
-    redirect_uri: "http://localhost:5000/auth/callback",
+    redirect_uri: "https://spotify-server-nine.vercel.app/auth/callback",
     grant_type: "authorization_code",
   });
   const authCode = Buffer.from(
